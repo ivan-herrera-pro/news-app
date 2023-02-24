@@ -16,6 +16,7 @@
 		"tailwindcss": "^3.2.7"
 	},
 	"devDependencies": {
+		"gh-pages": "^5.0.0",
 		"tailwind-scrollbar": "^2.1.0"
 	}
 }
