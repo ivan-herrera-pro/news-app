@@ -1,0 +1,33 @@
+---
+const 
+    SORT_BY = 'relevancy',
+    PAGE_SIZE = 20,
+    DOMNAINS = 'bbc.co.uk,bloomberg.com',
+    API_KEY = '43cb0c30971c4e96b3a82f132ccea04f',
+    API_URL = `https://newsapi.org/v2/everything?domains=${DOMNAINS}&apiKey=${API_KEY}&pageSize=${PAGE_SIZE}&sortBy=${SORT_BY}`,
+    response = await fetch(API_URL),
+    data = await response.json(),
+    articles = data.articles;
+
+    //https://newsapi.org/v2/everything?domains=techcrunch.com,thenextweb.com&apiKey=43cb0c30971c4e96b3a82f132ccea04f
+---
+
+<section class="my-12">
+    <div class="text-white font-bold pb-8">
+        <h3 class="text-4xl ">Lastest news</h3>
+    </div>
+    <div class="grid xl:grid-cols-4 md:grid-cols-3 sm:grid-cols-2 gap-8">
+        {articles.map(article => (
+            <div class="">
+                <a href={article.url} target="_blank">
+                    <img class="w-full object-contain rounded-lg shadow-xl bg-white" src={article.urlToImage} />    
+                </a>
+                <div class="w-full pt-2 text-blue-200 font-bold underline underline-offset-2 hover:text-white">
+                    <a href={article.url} target="_blank">
+                        <h4 class="line-clamp-2 text-lg break-all">{article.title}</h4>
+                    </a>    
+                </div>
+            </div>
+        ))}
+    </div>
+</section>

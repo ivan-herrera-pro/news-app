@@ -1,0 +1,26 @@
+---
+const 
+    SOURCE = 'bbc-news',
+    API_KEY = '43cb0c30971c4e96b3a82f132ccea04f',
+    API_URL = `https://newsapi.org/v2/top-headlines?sources=${SOURCE}&apiKey=${API_KEY}`,
+    response = await fetch(API_URL),
+    data = await response.json(),
+    articles = data.articles;
+---
+
+<section>
+    <div class="relative w-full flex gap-6 snap-x snap-mandatory overflow-x-auto pb-8 scrollbar-thin scrollbar-thumb-gray-400 scrollbar-track-gray-600 scrollbar-thumb-rounded-full scrollbar-h-4 scrollbar-track-rounded-full hover:scrollbar-thumb-gray-300">
+        {articles.map(article => (
+            <div class="snap-start scroll-mx-6 shrink-0 ">
+                <a href={article.url} target="_blank">
+                    <img class="shrink-0 w-80 h-40 rounded-lg shadow-xl bg-white" src={article.urlToImage} />    
+                </a>
+                <div class="w-80 text-blue-200 font-bold underline underline-offset-2 hover:text-white">
+                    <a href={article.url} target="_blank">
+                        <h3 class="line-clamp-2 text-lg break-all">{article.title}</h3>
+                    </a>    
+                </div>
+            </div>
+        ))}
+    </div>
+</section>

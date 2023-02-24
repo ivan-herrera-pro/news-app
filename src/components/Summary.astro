@@ -1,0 +1,31 @@
+---
+const date = new Date().toLocaleDateString('en-us', { weekday:"long", year:"numeric", month:"short", day:"numeric"});
+
+
+const 
+    CITY = 'Sincelejo',
+    API_KEY = 'baf7fd7b47fe455a8f623947220807',
+    API_URL = `http://api.weatherapi.com/v1/current.json?key=${API_KEY}&q=${CITY}`,
+    response = await fetch(API_URL),
+    data = await response.json(),
+    current = data.current,
+    location = data.location;
+---
+
+<div class="flex justify-between mb-4">
+    <div class="text-white">
+        <h2 class="text-4xl ">Your briefing</h2>
+        <div class="my-2">
+            <span class="text-xl">{date}</span>
+        </div>
+    </div>
+    <div class=" grid grid-cols-2 text-white">
+        <div>
+            <img src={current.condition.icon} alt="condition weather" class="w-full">
+        </div>
+        <div class="flex flex-col">
+            <span class="text-base text-gray-300">{location.name}</span>
+            <span class="text-4xl">{Math.round(current.temp_c)} °C</span>
+        </div>
+    </div>
+</div>

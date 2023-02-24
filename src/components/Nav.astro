@@ -1,0 +1,24 @@
+---
+const { title } = Astro.props;
+//const titleCustom = !title ? '' : '/' + title;
+---
+
+<header class="sticky z-40 px-8 top-0 backdrop-blur lg:border-b lg:border-slate-900/10 dark:border-slate-50/[0.06] bg-white supports-backdrop-blur:bg-white/95 dark:bg-slate-900/75">
+    <div class="container border-b-4 border-blue-100">
+        <h1 class="text-6xl text-red-500 font-bold py-4">
+            News<span class="text-gray-400">{!title ? '' : '/' + title}</span>
+        </h1>
+    
+        <div class="flex gap-x-4 my-6">
+            <div class="">
+                <a href="/" class="px-4 py-2 bg-blue-200 rounded-md text-lg text-blue-800 font-bold hover:bg-blue-500 active:bg-violet-700 hover:text-blue-100">Home</a>
+            </div>
+            <div>
+                <a href="/lastest/" class="px-4 py-2 bg-blue-200 rounded-md text-lg text-blue-800 font-bold hover:bg-blue-500 active:bg-violet-700 hover:text-blue-100">Lastest</a>
+            </div>
+            <div>
+                <a href="/about-me/" class="px-4 py-2 bg-blue-200 rounded-md text-lg text-blue-800 font-bold hover:bg-blue-500 active:bg-violet-700 hover:text-blue-100">About us</a>
+            </div>
+        </div>
+    </div>
+</header>
