@@ -1,10 +1,10 @@
 ---
-const date = new Date().toLocaleDateString('en-us', { weekday:"long", year:"numeric", month:"short", day:"numeric"});
-
+import { apiKeys } from "../utils/helper";
 
 const 
+    date = new Date().toLocaleDateString('en-us', { weekday:"long", year:"numeric", month:"short", day:"numeric"}),
     CITY = 'Sincelejo',
-    API_KEY = 'baf7fd7b47fe455a8f623947220807',
+    API_KEY = apiKeys.WEATHER_KEY,
     API_URL = `http://api.weatherapi.com/v1/current.json?key=${API_KEY}&q=${CITY}`,
     response = await fetch(API_URL),
     data = await response.json(),

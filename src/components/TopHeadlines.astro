@@ -1,7 +1,9 @@
 ---
+import { apiKeys } from "../utils/helper";
+
 const 
     SOURCE = 'bbc-news',
-    API_KEY = '43cb0c30971c4e96b3a82f132ccea04f',
+    API_KEY = apiKeys.NEWS_KEY,
     API_URL = `https://newsapi.org/v2/top-headlines?sources=${SOURCE}&apiKey=${API_KEY}`,
     response = await fetch(API_URL),
     data = await response.json(),
